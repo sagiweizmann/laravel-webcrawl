@@ -25,7 +25,7 @@ services:
     volumes:
       - ./src/webcrawl:/usr/local/apache2/htdocs/webcrawl
     working_dir: /usr/local/apache2/htdocs/webcrawl
-    command: install --ignore-platform-req=ext-mongodb
+    command: install
   mongo:
     image: mongo:5.0
     container_name: mongo

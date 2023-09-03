@@ -9,7 +9,16 @@ RUN apt-get install -y autoconf pkg-config libssl-dev
 RUN docker-php-ext-install bcmath mbstring intl opcache
 
 RUN pecl install mongodb
+
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/php-cli.ini
 
+# Copy the startup script into the container
+COPY start.sh /usr/local/bin/start.sh
+
+# Make the script executable
+RUN chmod +x /usr/local/bin/start.sh
+
+# Set the startup command to run the script
+CMD ["/usr/local/bin/start.sh"]
