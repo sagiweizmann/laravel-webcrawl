@@ -46,9 +46,6 @@ To start the Laravel backend, run the following command:
     php artisan serve
 The backend will be accessible at http://localhost:8000.
 
-Usage
-The backend has one route, /crawl, which handles the crawling process. You can initiate a crawl by making a POST request to this endpoint with the necessary parameters.
-
 ## Frontend (Angular)
 ### Installation
 Navigate to the angular-frontend directory:
@@ -67,7 +64,7 @@ Running the Frontend
 
 To start the Angular frontend, run the following command from within the angular-frontend directory:
 
-ng serve
+    ng serve
 The frontend will be accessible at http://localhost:4200.
 
 ## Usage
