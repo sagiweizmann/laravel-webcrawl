@@ -28,7 +28,36 @@
             transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
     </svg>
   </div>
+  <!-- Input fields for URL and depth -->
+  <div class="input-container">
+    <label for="url">Enter URL:</label>
+    <input type="text" id="url" [(ngModel)]="url" placeholder="Enter URL">
+  </div>
 
+  <div class="input-container">
+    <label for="depth">Enter Depth:</label>
+    <input type="number" id="depth" [(ngModel)]="depth" placeholder="Enter Depth">
+  </div>
+
+  <button (click)="crawl()">Submit</button>
+
+  <!-- Display crawler outcomes in a table format -->
+  <table *ngIf="crawlerResults.length > 0">
+    <thead>
+    <tr>
+      <th>Page URL</th>
+      <th>Title</th>
+      <!-- Add more columns for crawler outcomes as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let result of crawlerResults">
+      <td>{{ result.pageUrl }}</td>
+      <td>{{ result.title }}</td>
+      <!-- Add more table cells for additional crawler outcome data -->
+    </tr>
+    </tbody>
+  </table>
 
 </div>
 
