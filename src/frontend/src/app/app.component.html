@@ -43,8 +43,11 @@
     <!-- Submit button to trigger the crawl() method -->
     <button (click)="crawl()" type="submit">Submit</button>
   </div>
-  <!-- Display crawler outcomes in a table format -->
-  <table *ngIf="crawlerResults.length > 0">
+  <div class="loader" *ngIf="isLoading">
+    <div class="lds-dual-ring"></div>
+  </div>
+
+  <table *ngIf="!isLoading">
     <thead>
     <tr>
       <th>Crawling Results</th>

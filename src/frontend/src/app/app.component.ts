@@ -12,6 +12,7 @@ export class AppComponent {
   url: string = ''; // Define 'url' property
   depth: number = 1; // Define 'depth' property
   crawlerResults: any[] = []; // Define 'crawlerResults' property for storing crawler data
+  isLoading: boolean = false;
 
   constructor(private http: HttpClient) {
   }
@@ -24,8 +25,18 @@ export class AppComponent {
       .set('url', this.url)
       .set('depth', this.depth.toString());
 
+    this.isLoading = true;
+
     this.http.post(apiUrl, {}, { params }).subscribe((data: any) => {
       this.crawlerResults = data;
-    });
+      this.isLoading = false;
+
+    },(error) => {
+        console.error('Error:', error);
+
+        // Set isLoading to false even in case of an error
+        this.isLoading = false;
+      }
+    );
   }
 }
