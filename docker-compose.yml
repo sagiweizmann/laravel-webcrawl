@@ -10,21 +10,21 @@ services:
       - "80:80"
     volumes:
       - ./logs/apache:/var/log/apache2
-      - ./src/webcrawl:/usr/local/apache2/htdocs/webcrawl
+      - ./src/backend:/usr/local/apache2/htdocs/backend
   php:
     container_name: php
     build: ./docker/php
     ports:
       - "9000:9000"
     volumes:
-      - ./src/webcrawl:/usr/local/apache2/htdocs/webcrawl
-    working_dir: /usr/local/apache2/htdocs/webcrawl
+      - ./src/backend:/usr/local/apache2/htdocs/backend
+    working_dir: /usr/local/apache2/htdocs/backend
   composer:
     container_name: composer
     image: composer/composer
     volumes:
-      - ./src/webcrawl:/usr/local/apache2/htdocs/webcrawl
-    working_dir: /usr/local/apache2/htdocs/webcrawl
+      - ./src/backend:/usr/local/apache2/htdocs/backend
+    working_dir: /usr/local/apache2/htdocs/backend
     command: install
   mongo:
     image: mongo:5.0

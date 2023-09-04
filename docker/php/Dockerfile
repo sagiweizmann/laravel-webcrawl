@@ -14,6 +14,9 @@ RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/php-cli.ini
 
+RUN  cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
+    && echo "extension=mongodb.so" >> /usr/local/etc/php/php.ini
+
 # Copy the startup script into the container
 COPY start.sh /usr/local/bin/start.sh
 
