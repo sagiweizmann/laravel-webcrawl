@@ -39,22 +39,19 @@
     <input type="number" id="depth" [(ngModel)]="depth" placeholder="Enter Depth">
   </div>
 
+  <!-- Submit button to trigger the crawl() method -->
   <button (click)="crawl()">Submit</button>
 
   <!-- Display crawler outcomes in a table format -->
   <table *ngIf="crawlerResults.length > 0">
     <thead>
     <tr>
-      <th>Page URL</th>
-      <th>Title</th>
-      <!-- Add more columns for crawler outcomes as needed -->
+      <th>Crawling Results</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let result of crawlerResults">
-      <td>{{ result.pageUrl }}</td>
-      <td>{{ result.title }}</td>
-      <!-- Add more table cells for additional crawler outcome data -->
+      <td>{{ result }}</td>
     </tr>
     </tbody>
   </table>
