@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'Simple Web Crawler';
 
   url: string = ''; // Define 'url' property
-  depth: number = 0; // Define 'depth' property
+  depth: number = 1; // Define 'depth' property
   crawlerResults: any[] = []; // Define 'crawlerResults' property for storing crawler data
 
   constructor(private http: HttpClient) {
