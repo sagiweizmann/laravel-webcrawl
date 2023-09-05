@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CrawlMongo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 use App\Models\CrawlMongo as ModelsCrawlMongo;
 
 class CrawlerController extends Controller
@@ -18,10 +19,10 @@ class CrawlerController extends Controller
 
         // Store the crawled URLs in MongoDB using the CrawlMongo model
         foreach ($crawledUrls as $crawledUrl) {
-           // CrawlMongo::updateOrCreate(['url' => $crawledUrl]);
+            $this->storeUrlInMongoDB($crawledUrl);
         }
 
-        return response()->json($crawledUrls);
+        return response()->json($crawledUrls, 200, [], JSON_PRETTY_PRINT);
     }
 
     private function crawlRecursive($url, $maxDepth, $currentDepth = 0, &$crawledUrls = [])
@@ -32,6 +33,7 @@ class CrawlerController extends Controller
 
         $response = Http::get($url);
 
+        // Only web pages with a successful HTTP response status are stored.
         if ($response->successful()) {
             $crawledUrls[] = $url;
 
@@ -61,5 +63,12 @@ class CrawlerController extends Controller
         }
 
         return [];
+    }
+
+    private function storeUrlInMongoDB($url)
+    {
+        // Use the CrawlMongo model to save the URL in MongoDB
+        // Check if the URL already exists in the database to prevent duplicates
+        CrawlMongo::updateOrCreate(['url' => $url]);
     }
 }
