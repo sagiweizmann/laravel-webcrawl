@@ -2,6 +2,8 @@
 
 This project combines a Laravel 8 backend with an Angular frontend to create a web crawler that fetches website data based on user input. The crawler's outcomes are displayed in a visually pleasing table format.
 
+Working Gif Example of the Project:
+
 ![Web Crawler Gif](./webcrawler-gif.gif)
 
 ## Docker
