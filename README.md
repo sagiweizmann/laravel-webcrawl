@@ -2,11 +2,16 @@
 
 This project combines a Laravel 8 backend with an Angular frontend to create a web crawler that fetches website data based on user input. The crawler's outcomes are displayed in a visually pleasing table format.
 
+![Web Crawler Gif](./webcrawler-gif.gif)
 
 ## Docker
  To run the application with docker-compose, run the following command from the project root directory:
 
     docker-compose up -d --build
+
+Access the application at http://localhost:4200.
+
+
 
 ### If You dont have Docker on your Machine
 
