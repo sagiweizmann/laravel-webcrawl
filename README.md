@@ -2,7 +2,15 @@
 
 This project combines a Laravel 8 backend with an Angular frontend to create a web crawler that fetches website data based on user input. The crawler's outcomes are displayed in a visually pleasing table format.
 
-## Prerequisites
+
+## Docker
+ To run the application with docker-compose, run the following command from the project root directory:
+
+    docker-compose up -d --build
+
+### If You dont have Docker on your Machine
+
+#### Prerequisites
 
 Before running the application, make sure you have the following dependencies installed:
 
@@ -11,9 +19,9 @@ Before running the application, make sure you have the following dependencies in
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/get-npm)
 
-## Backend (Laravel)
+### Backend (Laravel)
 
-### Installation
+#### Installation
 
 Clone the repository:
 
@@ -46,8 +54,8 @@ To start the Laravel backend, run the following command:
     php artisan serve
 The backend will be accessible at http://localhost:8000.
 
-## Frontend (Angular)
-### Installation
+### Frontend (Angular)
+#### Installation
 Navigate to the angular-frontend directory:
 
 
