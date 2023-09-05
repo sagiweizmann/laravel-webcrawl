@@ -10,13 +10,6 @@ services:
     volumes:
       - ./src/backend:/usr/local/www/backend
     working_dir: /usr/local/www/backend
-  composer:
-    container_name: composer
-    image: composer/composer
-    volumes:
-      - ./src/backend:/usr/local/www/backend
-    working_dir: /usr/local/www/backend
-    command: install
   mongo:
     image: mongo:5.0
     container_name: mongo
